@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercice interactif de français – Niveau 4ᵉ – Sid KHALIFA</title>
+<meta name="description" content="Exercice interactif de français niveau 4e : temps et modes, temps du récit, fonctions grammaticales et figures de style. 30 questions avec correction automatique. Exercice de Sid KHALIFA.">
+<style>
+  :root{
+    --rose-bg:#FFF1F6;
+    --rose-soft:#FDE1ED;
+    --rose:#E86CA4;
+    --rose-deep:#C94F8A;
+    --rose-light:#FFD9E8;
+    --navy:#0A1730;
+    --navy-2:#132C58;
+    --navy-3:#1E4C8A;
+    --ink:#132347;
+    --green:#15803D;
+    --green-bg:#E3F7EB;
+    --green-line:#8FD7AA;
+    --red:#B91C1C;
+    --red-bg:#FCE7E7;
+    --red-line:#F0A9A9;
+    --gold:#D8A22F;
+    --shadow:0 10px 30px rgba(10,23,48,.10);
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background-color:var(--rose-bg);
+    background-image:
+      radial-gradient(1100px 560px at 8% -8%, #FFDCEA 0%, rgba(255,220,234,0) 62%),
+      radial-gradient(900px 520px at 108% 2%, #E4EDFB 0%, rgba(228,237,251,0) 58%),
+      radial-gradient(700px 420px at 50% 108%, #FFE3EF 0%, rgba(255,227,239,0) 60%);
+    background-attachment:fixed;
+    line-height:1.6;
+    font-size:16.5px;
+  }
+
+  .wrap{max-width:1000px;margin:0 auto;padding:22px 18px 70px;}
+
+  /* ---------- EN-TÊTE / LOGO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 55%,var(--navy-3) 100%);
+    border-radius:26px;
+    padding:26px 26px 30px;
+    box-shadow:0 18px 44px rgba(10,23,48,.28);
+    color:#fff;
+    border:1px solid rgba(255,217,232,.28);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:340px;height:340px;right:-120px;top:-150px;
+    background:radial-gradient(circle,rgba(232,108,164,.45) 0%,rgba(232,108,164,0) 68%);
+    pointer-events:none;
+  }
+  .brand{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .logo{width:96px;height:96px;flex:0 0 auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35));}
+  .brand-txt h2{
+    margin:0;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:1.5rem;
+    letter-spacing:.5px;
+    color:var(--rose-light);
+  }
+  .brand-txt p{margin:2px 0 0;font-size:.9rem;color:#CBD9F2;letter-spacing:.3px;}
+  .hero h1{
+    position:relative;
+    margin:20px 0 6px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(1.35rem,3.2vw,2.05rem);
+    line-height:1.28;
+    color:#fff;
+  }
+  .hero h1 em{color:var(--rose-light);font-style:normal;}
+  .hero .lead{margin:0;color:#CBD9F2;font-size:1rem;max-width:70ch;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;}
+  .chip{
+    background:rgba(255,217,232,.13);
+    border:1px solid rgba(255,217,232,.35);
+    color:#FFE3EF;
+    padding:5px 12px;border-radius:999px;
+    font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;
+  }
+  .author-tag{
+    display:inline-block;margin-top:16px;position:relative;
+    background:linear-gradient(90deg,var(--rose) 0%,var(--rose-deep) 100%);
+    color:#fff;font-weight:700;letter-spacing:.6px;
+    padding:8px 18px;border-radius:999px;font-size:.9rem;
+    box-shadow:0 6px 18px rgba(201,79,138,.4);
+  }
+
+  /* ---------- BARRE D'OUTILS ---------- */
+  .toolbar{
+    position:sticky;top:0;z-index:30;
+    margin:18px 0 0;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);
+    border:1px solid var(--rose-soft);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:12px 14px;
+  }
+  .tb-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+  .stats{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-weight:700;color:var(--navy-2);font-size:.95rem;}
+  .stat-pill{
+    background:var(--rose-bg);border:1px solid var(--rose-soft);
+    padding:5px 13px;border-radius:999px;
+  }
+  .stat-pill b{color:var(--rose-deep);}
+  .bar{
+    margin-top:10px;height:10px;border-radius:999px;background:#F1E3EA;overflow:hidden;
+    border:1px solid var(--rose-soft);
+  }
+  .bar span{
+    display:block;height:100%;width:0%;border-radius:999px;
+    background:linear-gradient(90deg,var(--navy-3) 0%,var(--rose) 100%);
+    transition:width .35s ease;
+  }
+  .tb-btns{display:flex;gap:8px;flex-wrap:wrap;}
+
+  /* ---------- BOUTONS ---------- */
+  button{font-family:inherit;}
+  .btn{
+    border:0;border-radius:12px;padding:10px 16px;cursor:pointer;
+    font-weight:700;font-size:.9rem;letter-spacing:.2px;
+    transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-navy{background:var(--navy-2);color:#fff;box-shadow:0 6px 16px rgba(19,44,88,.28);}
+  .btn-navy:hover{filter:brightness(1.12);}
+  .btn-rose{background:linear-gradient(90deg,var(--rose) 0%,var(--rose-deep) 100%);color:#fff;box-shadow:0 6px 16px rgba(201,79,138,.32);}
+  .btn-rose:hover{filter:brightness(1.06);}
+  .btn-ghost{background:#fff;color:var(--navy-2);border:1.5px solid var(--navy-2);}
+  .btn-ghost:hover{background:var(--navy-2);color:#fff;}
+  .btn-check{background:var(--navy);color:#fff;padding:10px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;font-size:.9rem;}
+  .btn-check:hover{filter:brightness(1.18);}
+
+  /* ---------- SECTIONS ---------- */
+  .section{margin-top:34px;}
+  .sec-head{
+    display:flex;align-items:center;gap:14px;
+    background:#fff;border-left:7px solid var(--navy-2);
+    border-radius:14px;padding:14px 18px;box-shadow:var(--shadow);
+  }
+  .sec-head .sec-num{
+    font-family:Georgia,serif;font-weight:700;font-size:1.5rem;color:var(--rose);
+    min-width:44px;text-align:center;
+  }
+  .sec-head h3{margin:0;font-family:Georgia,serif;font-size:1.12rem;color:var(--navy);}
+  .sec-head p{margin:2px 0 0;font-size:.86rem;color:#5B6B85;}
+
+  /* ---------- CARTES QUESTION ---------- */
+  .card{
+    background:#fff;
+    border:1px solid var(--rose-soft);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-top:14px;
+    box-shadow:var(--shadow);
+    transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;
+  }
+  .card.is-ok{border-color:var(--green-line);background:linear-gradient(180deg,#F6FEF9 0%,#fff 60%);}
+  .card.is-bad{border-color:var(--red-line);background:linear-gradient(180deg,#FFF7F7 0%,#fff 60%);}
+  .card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+  .qnum{
+    background:var(--navy-2);color:#fff;font-weight:700;font-size:.78rem;
+    padding:3px 10px;border-radius:8px;letter-spacing:.6px;
+  }
+  .tag{
+    background:var(--rose-bg);color:var(--rose-deep);
+    border:1px solid var(--rose-soft);
+    font-size:.72rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+    padding:3px 10px;border-radius:999px;
+  }
+  .q-text{margin:6px 0 14px;font-size:1.02rem;}
+  .q-text em{color:var(--navy-3);font-style:italic;font-weight:600;}
+  .blank{
+    display:inline-block;min-width:74px;border-bottom:2px solid var(--rose);
+    color:var(--rose-deep);text-align:center;font-weight:700;
+  }
+
+  .options{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  @media (max-width:640px){.options{grid-template-columns:1fr;}}
+  .opt{
+    text-align:left;background:#FBFBFD;border:1.5px solid #E2E6EF;border-radius:12px;
+    padding:11px 14px;cursor:pointer;font-size:.96rem;color:var(--ink);
+    transition:all .18s ease;
+  }
+  .opt:hover{border-color:var(--rose);background:var(--rose-bg);}
+  .opt.good{
+    background:var(--green-bg);border-color:var(--green);color:#0F5D2C;font-weight:700;
+    box-shadow:0 0 0 3px rgba(21,128,61,.12);
+  }
+  .opt.bad{
+    background:var(--red-bg);border-color:var(--red);color:#8E1616;font-weight:700;
+    box-shadow:0 0 0 3px rgba(185,28,28,.12);
+  }
+  .opt.good::after{content:" ✔";color:var(--green);}
+  .opt.bad::after{content:" ✘";color:var(--red);}
+
+  .answer-row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;}
+  input.answer{
+    flex:1 1 260px;min-width:0;
+    padding:11px 14px;border:1.5px solid #D9DEE9;border-radius:12px;
+    font-size:1rem;font-family:inherit;color:var(--ink);background:#FBFBFD;
+    transition:all .18s ease;
+  }
+  input.answer:focus{outline:none;border-color:var(--rose);background:#fff;box-shadow:0 0 0 3px rgba(232,108,164,.16);}
+  input.answer.good{border-color:var(--green);background:var(--green-bg);color:#0F5D2C;font-weight:700;}
+  input.answer.bad{border-color:var(--red);background:var(--red-bg);color:#8E1616;font-weight:700;}
+
+  .feedback{margin:12px 0 0;font-size:.93rem;font-weight:600;min-height:0;}
+  .feedback.ok{color:var(--green);}
+  .feedback.bad{color:var(--red);}
+  .feedback.hint{color:#8A6A10;}
+  .feedback .sol{color:var(--green);font-weight:800;}
+
+  /* ---------- BAS DE PAGE ---------- */
+  .actions{
+    margin-top:38px;background:#fff;border:1px solid var(--rose-soft);
+    border-radius:22px;padding:22px;box-shadow:var(--shadow);text-align:center;
+  }
+  .actions h3{margin:0 0 4px;font-family:Georgia,serif;color:var(--navy);font-size:1.15rem;}
+  .actions p.sub{margin:0 0 16px;color:#5B6B85;font-size:.9rem;}
+  .actions .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+  .corrige{
+    display:none;margin-top:22px;text-align:left;
+    border-top:2px dashed var(--rose-soft);padding-top:20px;
+  }
+  .corrige.open{display:block;}
+  .cor-item{
+    border:1px solid var(--rose-soft);border-left:5px solid var(--navy-2);
+    border-radius:14px;background:#FFFBFD;padding:14px 16px;margin-bottom:12px;
+  }
+  .cor-item.ok{border-left-color:var(--green);background:#F7FEF9;}
+  .cor-item.bad{border-left-color:var(--red);background:#FFF8F8;}
+  .cor-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .cor-status{font-size:.74rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:999px;}
+  .cor-status.ok{background:var(--green-bg);color:var(--green);border:1px solid var(--green-line);}
+  .cor-status.bad{background:var(--red-bg);color:var(--red);border:1px solid var(--red-line);}
+  .cor-status.none{background:#EEF1F6;color:#5B6B85;border:1px solid #D9DEE9;}
+  .cor-item p{margin:5px 0;font-size:.94rem;}
+  .cor-q{color:var(--navy-2);}
+  .cor-item .ok-text{color:var(--green);font-weight:800;}
+  .cor-item .bad-text{color:var(--red);font-weight:800;}
+  .cor-e{color:#3A4A66;}
+  .cor-e b{color:var(--navy-2);}
+
+  footer.credit{
+    margin-top:26px;text-align:center;color:#7A8699;font-size:.85rem;
+  }
+  footer.credit strong{color:var(--navy-2);}
+
+  /* ---------- OUTILS D'ENREGISTREMENT ---------- */
+  .save-tools{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px dashed var(--rose-soft);}
+  .save-panel{
+    display:none;margin-top:16px;text-align:left;
+    border:1px solid #C9D8EE;border-radius:16px;background:#F6F9FF;padding:16px 18px;
+  }
+  .save-panel.open{display:block;}
+  .save-panel h4{margin:0 0 6px;font-family:Georgia,serif;color:var(--navy);font-size:1.05rem;}
+  .save-panel p.sm{margin:0 0 10px;font-size:.9rem;color:#43536E;}
+  .save-panel .steps{margin:0 0 14px 20px;font-size:.89rem;color:#43536E;}
+  .save-panel .steps li{margin-bottom:3px;}
+  .save-panel textarea{
+    width:100%;height:240px;font-family:ui-monospace,Consolas,"Courier New",monospace;
+    font-size:.76rem;line-height:1.45;color:var(--navy);background:#fff;
+    border:1px solid #C9D8EE;border-radius:12px;padding:12px;resize:vertical;
+  }
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);
+    background:var(--navy);color:#fff;padding:12px 20px;border-radius:999px;
+    font-size:.9rem;font-weight:600;box-shadow:0 14px 34px rgba(10,23,48,.35);
+    opacity:0;pointer-events:none;transition:all .3s ease;z-index:60;max-width:92vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* ---------- IMPRESSION ---------- */
+  @media print{
+    .toolbar,.tb-btns,.actions .row,.btn{display:none !important;}
+    .corrige{display:block !important;}
+    body{background:#fff;}
+    .hero{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ================= EN-TÊTE + LOGO ================= -->
+  <header class="hero">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 128 128" role="img" aria-label="Logo de l'exercice : monogramme SK">
+        <defs>
+          <linearGradient id="lgBadge" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0A1730"></stop>
+            <stop offset="55%" stop-color="#132C58"></stop>
+            <stop offset="100%" stop-color="#20508F"></stop>
+          </linearGradient>
+          <linearGradient id="lgRose" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FFD9E8"></stop>
+            <stop offset="100%" stop-color="#EE6FA8"></stop>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="124" height="124" rx="34" fill="url(#lgBadge)"></rect>
+        <rect x="10" y="10" width="108" height="108" rx="27" fill="none" stroke="url(#lgRose)" stroke-width="2.5"></rect>
+        <text x="64" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" letter-spacing="1" fill="url(#lgRose)">SK</text>
+        <path d="M40 86 H88" stroke="url(#lgRose)" stroke-width="2.5" stroke-linecap="round" opacity="0.9"></path>
+        <circle cx="52" cy="95" r="3.4" fill="#FFD9E8"></circle>
+        <circle cx="64" cy="95" r="3.4" fill="#EE6FA8"></circle>
+        <circle cx="76" cy="95" r="3.4" fill="#FFD9E8"></circle>
+      </svg>
+      <div class="brand-txt">
+        <h2>Sid KHALIFA</h2>
+        <p>Évaluation interactive de français · Niveau 4ᵉ</p>
+      </div>
+    </div>
+
+    <h1>Les <em>temps et les modes</em>, les <em>temps du récit</em>, les <em>fonctions</em> et les <em>figures de style</em></h1>
+    <p class="lead">30 questions avancées, conformes au programme officiel de français de 4ᵉ. Correction automatique :
+      chaque bonne réponse s'affiche en <strong style="color:#9FE7BC">vert</strong> et chaque erreur en
+      <strong style="color:#FFB3B3">rouge</strong>. Un corrigé complet avec explications est disponible en bas de page.</p>
+
+    <div class="chips">
+      <span class="chip">Temps &amp; modes</span>
+      <span class="chip">Temps du récit</span>
+      <span class="chip">Fonctions grammaticales</span>
+      <span class="chip">Figures de style</span>
+      <span class="chip">30 questions</span>
+    </div>
+
+    <div class="author-tag">✎ Exercice conçu par Sid KHALIFA</div>
+  </header>
+
+  <!-- ================= BARRE D'OUTILS ================= -->
+  <div class="toolbar">
+    <div class="tb-top">
+      <div class="stats">
+        <span class="stat-pill">Score : <b id="score">0</b> / 30</span>
+        <span class="stat-pill">Questions traitées : <b id="done">0</b> / 30</span>
+        <span class="stat-pill" id="mention">Note : —</span>
+      </div>
+      <div class="tb-btns">
+        <button type="button" class="btn btn-navy" id="btnVerifyAll">✔ Vérifier toutes mes réponses</button>
+        <button type="button" class="btn btn-rose" id="btnDownloadTop">⬇ Télécharger le fichier HTML</button>
+        <button type="button" class="btn btn-ghost" id="btnResetTop">↺ Réinitialiser</button>
+      </div>
+    </div>
+    <div class="bar"><span id="progressBar"></span></div>
+  </div>
+
+  <noscript>
+    <p style="background:#FCE7E7;border:1px solid #F0A9A9;color:#B91C1C;padding:14px;border-radius:12px;margin-top:18px;">
+      Pour bénéficier de la correction automatique, veuillez activer JavaScript dans votre navigateur.
+    </p>
+  </noscript>
+
+  <main>
+
+    <!-- ============ SECTION 1 ============ -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-num">1</div>
+        <div>
+          <h3>Temps et modes : indicatif, subjonctif, conditionnel, impératif</h3>
+          <p>Identifier le mode, le temps et savoir conjuguer selon le sens de la phrase.</p>
+        </div>
+      </div>
+
+      <article class="card" data-qid="1">
+        <div class="card-head"><span class="qnum">Question 01</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Quel est le mode et le temps du verbe <em>finisses</em> dans : « Il faut que tu <em>finisses</em> ton travail avant ce soir. »</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Indicatif présent</button>
+          <button type="button" class="opt" data-i="1">Subjonctif présent</button>
+          <button type="button" class="opt" data-i="2">Conditionnel présent</button>
+          <button type="button" class="opt" data-i="3">Impératif présent</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="2">
+        <div class="card-head"><span class="qnum">Question 02</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Quel mode est employé dans la phrase : « <em>Aie</em> confiance en toi ! » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Subjonctif présent</button>
+          <button type="button" class="opt" data-i="1">Impératif présent</button>
+          <button type="button" class="opt" data-i="2">Indicatif présent</button>
+          <button type="button" class="opt" data-i="3">Infinitif présent</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="3">
+        <div class="card-head"><span class="qnum">Question 03</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Complétez avec le verbe <em>avoir</em> au mode et au temps qui conviennent : « Je souhaite que vous <span class="blank">______</span> du courage. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="4">
+        <div class="card-head"><span class="qnum">Question 04</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Quel est le temps du verbe dans : « Il <em>aurait préféré</em> partir plus tôt. » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Futur antérieur</button>
+          <button type="button" class="opt" data-i="1">Conditionnel passé</button>
+          <button type="button" class="opt" data-i="2">Plus-que-parfait de l'indicatif</button>
+          <button type="button" class="opt" data-i="3">Subjonctif passé</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="5">
+        <div class="card-head"><span class="qnum">Question 05</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Conjuguez le verbe <em>pleuvoir</em> au mode et au temps qui conviennent : « Bien qu'il <span class="blank">______</span> depuis le matin, nous sortirons. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="6">
+        <div class="card-head"><span class="qnum">Question 06</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Dans la phrase « <em>En courant</em>, il rattrapa le bus. », quelle est la nature grammaticale de « en courant » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Participe passé</button>
+          <button type="button" class="opt" data-i="1">Infinitif présent</button>
+          <button type="button" class="opt" data-i="2">Gérondif</button>
+          <button type="button" class="opt" data-i="3">Adjectif verbal</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="7">
+        <div class="card-head"><span class="qnum">Question 07</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Conjuguez le verbe <em>venir</em> au mode et au temps qui conviennent : « Je ne crois pas qu'il <span class="blank">______</span> demain. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="8">
+        <div class="card-head"><span class="qnum">Question 08</span><span class="tag">Temps &amp; modes</span></div>
+        <p class="q-text">Mettez la phrase suivante au <strong>conditionnel présent</strong> : « Je <em>viendrai</em> demain. » → « Je <span class="blank">______</span> demain. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <!-- ============ SECTION 2 ============ -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-num">2</div>
+        <div>
+          <h3>Les temps du récit : passé simple, imparfait, plus-que-parfait, passé antérieur</h3>
+          <p>Distinguer le premier plan de l'arrière-plan et respecter la chronologie du récit.</p>
+        </div>
+      </div>
+
+      <article class="card" data-qid="9">
+        <div class="card-head"><span class="qnum">Question 09</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Dans un récit au passé, quel temps est réservé aux actions de <strong>premier plan</strong>, ponctuelles et achevées ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">L'imparfait</button>
+          <button type="button" class="opt" data-i="1">Le passé simple</button>
+          <button type="button" class="opt" data-i="2">Le plus-que-parfait</button>
+          <button type="button" class="opt" data-i="3">Le futur simple</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="10">
+        <div class="card-head"><span class="qnum">Question 10</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Quel temps sert à décrire le décor, les habitudes et les actions d'<strong>arrière-plan</strong> dans un récit au passé ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Le passé antérieur</button>
+          <button type="button" class="opt" data-i="1">Le passé composé</button>
+          <button type="button" class="opt" data-i="2">L'imparfait</button>
+          <button type="button" class="opt" data-i="3">Le futur antérieur</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="11">
+        <div class="card-head"><span class="qnum">Question 11</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Complétez : « Il <span class="blank">______</span> (pleuvoir) depuis le matin quand la tempête éclata. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="12">
+        <div class="card-head"><span class="qnum">Question 12</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Dans « Quand il <em>eut fini</em> ses devoirs, il sortit. », le verbe « eut fini » est au :</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Passé simple</button>
+          <button type="button" class="opt" data-i="1">Plus-que-parfait</button>
+          <button type="button" class="opt" data-i="2">Passé antérieur</button>
+          <button type="button" class="opt" data-i="3">Conditionnel passé</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="13">
+        <div class="card-head"><span class="qnum">Question 13</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Récit au passé simple : « Dès qu'elle <span class="blank">______</span> (rentrer), elle alluma la lampe. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="14">
+        <div class="card-head"><span class="qnum">Question 14</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">Complétez : « Elle entra dans la pièce et vit que quelqu'un <span class="blank">______</span> (déplacer) les meubles. »</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Écrivez le verbe conjugué…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="15">
+        <div class="card-head"><span class="qnum">Question 15</span><span class="tag">Temps du récit</span></div>
+        <p class="q-text">« La porte s'ouvrit ; un homme parut, qui <em>portait</em> un long manteau noir. » Le verbe « portait » est à l'imparfait parce qu'il…</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">exprime une action ponctuelle de premier plan</button>
+          <button type="button" class="opt" data-i="1">exprime une action antérieure aux autres</button>
+          <button type="button" class="opt" data-i="2">décrit un personnage, sur le plan de l'arrière-plan</button>
+          <button type="button" class="opt" data-i="3">exprime une hypothèse non réalisée</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <!-- ============ SECTION 3 ============ -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-num">3</div>
+        <div>
+          <h3>Les fonctions grammaticales dans la phrase</h3>
+          <p>Sujet, COD, COI, attribut, épithète, apposition, complément du nom, compléments circonstanciels, complément d'agent.</p>
+        </div>
+      </div>
+
+      <article class="card" data-qid="16">
+        <div class="card-head"><span class="qnum">Question 16</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Il offre un livre <em>à sa sœur</em>. », quelle est la fonction de « à sa sœur » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Complément d'objet direct</button>
+          <button type="button" class="opt" data-i="1">Complément d'objet indirect (COI)</button>
+          <button type="button" class="opt" data-i="2">Complément circonstanciel de lieu</button>
+          <button type="button" class="opt" data-i="3">Complément du nom</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="17">
+        <div class="card-head"><span class="qnum">Question 17</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Le chat dort <em>paisiblement</em> sur le canapé. », quelle est la fonction de « paisiblement » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Complément circonstanciel de lieu</button>
+          <button type="button" class="opt" data-i="1">Épithète du nom</button>
+          <button type="button" class="opt" data-i="2">Complément circonstanciel de manière</button>
+          <button type="button" class="opt" data-i="3">Attribut du sujet</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="18">
+        <div class="card-head"><span class="qnum">Question 18</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Ce peintre semble <em>talentueux</em>. », quelle est la fonction précise de l'adjectif « talentueux » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la fonction…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="19">
+        <div class="card-head"><span class="qnum">Question 19</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « La ville <em>de Paris</em> est magnifique. », quelle est la fonction de « de Paris » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">COI</button>
+          <button type="button" class="opt" data-i="1">Complément circonstanciel de lieu</button>
+          <button type="button" class="opt" data-i="2">Complément du nom</button>
+          <button type="button" class="opt" data-i="3">Apposition</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="20">
+        <div class="card-head"><span class="qnum">Question 20</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Les élèves <em>studieux</em> réussissent leur examen. », quelle est la fonction de l'adjectif « studieux » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la fonction…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="21">
+        <div class="card-head"><span class="qnum">Question 21</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Ce roman a été écrit <em>par un enfant de douze ans</em>. », quelle est la fonction de « par un enfant de douze ans » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Complément circonstanciel de moyen</button>
+          <button type="button" class="opt" data-i="1">COI</button>
+          <button type="button" class="opt" data-i="2">Complément d'agent</button>
+          <button type="button" class="opt" data-i="3">Complément du nom</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="22">
+        <div class="card-head"><span class="qnum">Question 22</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Paris, <em>la capitale de la France</em>, attire des millions de touristes. », quelle est la fonction de « la capitale de la France » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la fonction…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="23">
+        <div class="card-head"><span class="qnum">Question 23</span><span class="tag">Fonctions</span></div>
+        <p class="q-text">Dans « Il travaille d'arrache-pied <em>pour réussir son concours</em>. », quelle est la fonction de « pour réussir son concours » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Complément circonstanciel de cause</button>
+          <button type="button" class="opt" data-i="1">COI</button>
+          <button type="button" class="opt" data-i="2">Complément circonstanciel de but</button>
+          <button type="button" class="opt" data-i="3">Complément circonstanciel de manière</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <!-- ============ SECTION 4 ============ -->
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-num">4</div>
+        <div>
+          <h3>Les figures de style</h3>
+          <p>Identifier et interpréter les procédés d'écriture : images, sonorités, oppositions.</p>
+        </div>
+      </div>
+
+      <article class="card" data-qid="24">
+        <div class="card-head"><span class="qnum">Question 24</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Cet homme est <em>un lion</em>. » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Comparaison</button>
+          <button type="button" class="opt" data-i="1">Métaphore</button>
+          <button type="button" class="opt" data-i="2">Métonymie</button>
+          <button type="button" class="opt" data-i="3">Hyperbole</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="25">
+        <div class="card-head"><span class="qnum">Question 25</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Elle est belle <em>comme</em> le jour. » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la figure…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="26">
+        <div class="card-head"><span class="qnum">Question 26</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Je <em>meurs de faim</em> ! » ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Litote</button>
+          <button type="button" class="opt" data-i="1">Hyperbole</button>
+          <button type="button" class="opt" data-i="2">Euphémisme</button>
+          <button type="button" class="opt" data-i="3">Antithèse</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="27">
+        <div class="card-head"><span class="qnum">Question 27</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Le vent <em>murmurait des secrets</em> à la nuit. » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la figure…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="28">
+        <div class="card-head"><span class="qnum">Question 28</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Cette <em>obscure clarté</em> qui tombe des étoiles. » (Corneille) ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Antithèse</button>
+          <button type="button" class="opt" data-i="1">Allégorie</button>
+          <button type="button" class="opt" data-i="2">Oxymore</button>
+          <button type="button" class="opt" data-i="3">Chiasme</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="29">
+        <div class="card-head"><span class="qnum">Question 29</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Je ne suis pas <em>mécontent</em> de ton travail. » ?</p>
+        <div class="answer-row">
+          <input type="text" class="answer" placeholder="Nommez la figure…" autocomplete="off" spellcheck="false">
+          <button type="button" class="btn-check">Vérifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+
+      <article class="card" data-qid="30">
+        <div class="card-head"><span class="qnum">Question 30</span><span class="tag">Figures de style</span></div>
+        <p class="q-text">Quelle figure de style reconnaît-on dans : « Pour qui sont <em>ces serpents qui sifflent sur vos têtes</em> ? » (Racine) ?</p>
+        <div class="options">
+          <button type="button" class="opt" data-i="0">Assonance</button>
+          <button type="button" class="opt" data-i="1">Anaphore</button>
+          <button type="button" class="opt" data-i="2">Allitération</button>
+          <button type="button" class="opt" data-i="3">Paronomase</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+  </main>
+
+  <!-- ================= BAS DE PAGE ================= -->
+  <section class="actions">
+    <h3>Correction et corrigé</h3>
+    <p class="sub">Corrigé vos réponses, puis affichez le corrigé détaillé : chaque question y est expliquée.</p>
+    <div class="row">
+      <button type="button" class="btn btn-navy" id="btnVerifyAll2">✔ Vérifier toutes mes réponses</button>
+      <button type="button" class="btn btn-rose" id="btnCorrige">📖 Afficher le corrigé avec explications</button>
+      <button type="button" class="btn btn-ghost" id="btnReset">↺ Réinitialiser l'exercice</button>
+    </div>
+
+    <div class="save-tools">
+      <button type="button" class="btn btn-rose" id="btnDownload">⬇ Télécharger le fichier HTML</button>
+      <button type="button" class="btn btn-ghost" id="btnSource">📋 Code source à copier</button>
+      <button type="button" class="btn btn-ghost" id="btnOpenTab">🌐 Ouvrir dans un nouvel onglet</button>
+    </div>
+
+    <div class="save-panel" id="savePanel">
+      <h4>Enregistrer l'exercice au format .html</h4>
+      <p class="sm" id="saveMsg">Copiez le code ci-dessous pour créer votre fichier.</p>
+      <ol class="steps">
+        <li>Cliquez sur « Copier tout le code ».</li>
+        <li>Ouvrez un éditeur de texte : Bloc-notes (Windows), TextEdit (Mac), ou un éditeur de code.</li>
+        <li>Collez le code, puis enregistrez le fichier sous le nom <strong>Exercice-Francais-4e-Sid-KHALIFA.html</strong> — choisissez « Tous les fichiers » et l'encodage <strong>UTF-8</strong>.</li>
+      </ol>
+      <div class="row" style="justify-content:flex-start;margin:0 0 12px">
+        <button type="button" class="btn btn-navy" id="btnCopyAll">📋 Copier tout le code</button>
+        <button type="button" class="btn btn-ghost" id="btnSelect">🔎 Tout sélectionner</button>
+        <button type="button" class="btn btn-ghost" id="btnClosePanel">✕ Fermer</button>
+      </div>
+      <textarea id="srcBox" readonly="" spellcheck="false" aria-label="Code source de l'exercice"></textarea>
+    </div>
+
+    <div class="corrige" id="corrige">
+      <div id="corrigeBody"></div>
+    </div>
+  </section>
+
+  <footer class="credit">
+    <p>Exercice interactif de français — Niveau 4ᵉ · <strong>Créé par Sid KHALIFA</strong><br>
+    Contenu conforme au programme officiel : temps et modes, temps du récit, fonctions grammaticales, figures de style.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Photographie du fichier d'origine, pour le téléchargement ---------- */
+  var PRISTINE = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  /* ---------- Corrigé et explications (source unique de vérité) ---------- */
+  var KEY = {
+    1:  { correct:1, expl:"Après « il faut que », qui exprime la nécessité, le verbe se met au subjonctif. « Que tu finisses » est le subjonctif présent (que je finisse, que tu finisses, qu'il finisse)." },
+    2:  { correct:1, expl:"« Aie » est l'impératif présent du verbe avoir à la 2e personne du singulier (aie, ayons, ayez). L'impératif se conjugue sans pronom sujet." },
+    3:  { text:["ayez"], expl:"Le verbe « souhaiter que » entraîne le subjonctif. Au subjonctif présent, avoir donne : que j'aie, que tu aies, qu'il ait, que nous ayons, que vous ayez, qu'ils aient." },
+    4:  { correct:1, expl:"« Aurait préféré » = auxiliaire avoir au conditionnel présent + participe passé : c'est le conditionnel passé. Il exprime ici un regret, une hypothèse qui ne s'est pas réalisée." },
+    5:  { text:["pleuve"], expl:"« Bien que » introduit une proposition de concession et exige le subjonctif présent : bien qu'il pleuve." },
+    6:  { correct:2, expl:"Le gérondif se forme avec « en » + participe présent (en courant, en marchant, en riant). Il exprime ici la simultanéité ou le moyen : il a rattrapé le bus en courant." },
+    7:  { text:["vienne"], expl:"À la forme négative, « ne pas croire que » entraîne le subjonctif quand la négation porte sur la certitude : je ne crois pas qu'il vienne (subjonctif présent de venir)." },
+    8:  { text:["viendrais"], expl:"Au conditionnel présent, venir donne : je viendrais, tu viendrais, il viendrait. Attention : le futur simple s'écrit « je viendrai », sans « s »." },
+
+    9:  { correct:1, expl:"Le passé simple est le temps du premier plan : il raconte les actions ponctuelles et achevées qui font progresser l'histoire (il entra, il vit, il partit)." },
+    10: { correct:2, expl:"L'imparfait plante le décor : descriptions, habitudes, actions d'arrière-plan, tout ce qui n'est pas ponctuel (il pleuvait, la maison semblait vide)." },
+    11: { text:["pleuvait"], expl:"L'imparfait (« pleuvait ») décrit une situation d'arrière-plan déjà en cours ; « éclata », au passé simple, marque l'événement de premier plan qui surgit." },
+    12: { correct:2, expl:"« Eut fini » est le passé antérieur (auxiliaire avoir au passé simple + participe passé). Il exprime une action achevée juste avant une autre action exprimée au passé simple." },
+    13: { text:["rentra"], expl:"Dans un récit au passé, l'action ponctuelle de premier plan se met au passé simple : dès qu'elle rentra, elle alluma la lampe." },
+    14: { text:["avait deplace"], expl:"Le plus-que-parfait (« avait déplacé ») exprime une action antérieure à celle exprimée au passé simple : on découvre le résultat d'une action déjà accomplie." },
+    15: { correct:2, expl:"À l'imparfait, « portait » décrit le personnage au moment où il entre : c'est l'arrière-plan du récit, tandis que « s'ouvrit » et « parut » (passé simple) font avancer l'action." },
+
+    16: { correct:1, expl:"Le verbe offrir se construit avec deux compléments : « offrir quelque chose à quelqu'un ». « À sa sœur » est donc le complément d'objet indirect (COI) ; « un livre » est le COD." },
+    17: { correct:2, expl:"« Paisiblement » indique la manière dont le chat dort : c'est un complément circonstanciel de manière. Il est supprimable et déplaçable dans la phrase." },
+    18: { text:["attribut","attribut du sujet","l attribut du sujet"], expl:"Après un verbe d'état (être, sembler, paraître, devenir, rester, avoir l'air...), l'adjectif est attribut du sujet. Il ne peut pas être supprimé : « Ce peintre semble… » serait incomplet." },
+    19: { correct:2, expl:"« De Paris » complète le nom « ville » sans être introduit par un verbe : c'est un complément du nom." },
+    20: { text:["epithete","epithete du nom","adjectif epithete","epithete liee"], expl:"« Studieux » est un adjectif épithète : il est directement rattaché au nom « élèves », sans verbe d'état, et il peut être supprimé sans que la phrase devienne incorrecte." },
+    21: { correct:2, expl:"Dans une phrase passive, le complément introduit par « par » indique qui fait l'action : c'est le complément d'agent. Ici, c'est l'enfant qui a écrit le roman." },
+    22: { text:["apposition","en apposition","apposition du sujet"], expl:"« La capitale de la France » est apposée au nom « Paris » : c'est une apposition. Séparée par des virgules, elle donne une information supplémentaire sur le sujet." },
+    23: { correct:2, expl:"« Pour réussir son concours » indique le but de l'action : c'est un complément circonstanciel de but." },
+
+    24: { correct:1, expl:"L'homme est comparé à un lion, mais SANS outil de comparaison : c'est une métaphore. Avec « comme » (il est fort comme un lion), ce serait une comparaison." },
+    25: { text:["comparaison","une comparaison"], expl:"L'outil de comparaison « comme » est présent : c'est donc une comparaison (rapprochement explicite de deux réalités)." },
+    26: { correct:1, expl:"« Mourir de faim » exagère volontairement la réalité : c'est une hyperbole (on dit beaucoup plus que ce qui est vrai)." },
+    27: { text:["personnification","une personnification"], expl:"Le vent, qui n'est pas humain, accomplit une action humaine (murmurer des secrets) : c'est une personnification." },
+    28: { correct:2, expl:"Deux mots de sens opposé sont réunis dans le même groupe nominal (« obscure clarté ») : c'est un oxymore. L'antithèse, elle, oppose deux idées dans une phrase entière." },
+    29: { text:["litote","une litote"], expl:"On atténue sa pensée pour mieux la faire entendre : « je ne suis pas mécontent » signifie en réalité « je suis satisfait ». C'est une litote." },
+    30: { correct:2, expl:"On entend la répétition du son [s] : « ces serpents qui sifflent sur vos têtes ». C'est une allitération (répétition d'une consonne). L'assonance, elle, répète une voyelle." }
+  };
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var TOTAL = cards.length;
+  var corPanel = document.getElementById('corrige');
+  var corBody  = document.getElementById('corrigeBody');
+  var btnCorrige = document.getElementById('btnCorrige');
+  var correctionBuilt = false;
+
+  /* ---------- Normalisation des réponses écrites ---------- */
+  function norm(s){
+    return String(s || "")
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")   /* accents */
+      .replace(/[’`´]/g, "'")
+      .replace(/œ/g, "oe")
+      .replace(/[.,;:!?«»"()]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function cardOf(el){ return el.closest('.card'); }
+
+  function setFeedback(card, ok, html){
+    var fb = card.querySelector('.feedback');
+    if(!fb) return;
+    fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+    fb.innerHTML = html;
+  }
+
+  /* ---------- Correction d'une question à réponse libre ---------- */
+  function checkText(card){
+    var qid = card.getAttribute('data-qid');
+    var data = KEY[qid];
+    var input = card.querySelector('input.answer');
+    if(!data || !input) return false;
+
+    var val = input.value.trim();
+    if(val === ""){
+      input.classList.remove('good','bad');
+      card.classList.remove('is-ok','is-bad');
+      var fb0 = card.querySelector('.feedback');
+      fb0.className = 'feedback hint';
+      fb0.textContent = "✎ Écrivez votre réponse, puis cliquez sur « Vérifier ».";
+      return false;
+    }
+
+    var ok = data.text.some(function(a){ return norm(a) === norm(val); });
+
+    input.classList.remove('good','bad');
+    card.classList.remove('is-ok','is-bad');
+    input.classList.add(ok ? 'good' : 'bad');
+    card.classList.add(ok ? 'is-ok' : 'is-bad');
+    card.classList.add('touched');
+
+    if(ok){
+      setFeedback(card, true, "✔ Bonne réponse ! " + data.expl);
+    } else {
+      setFeedback(card, false, "✘ Réponse incorrecte. Réponse attendue : <span class='sol'>" + data.text[0] + "</span><br>" + data.expl);
+    }
+    updateStats();
+    return ok;
+  }
+
+  /* ---------- Sélection d'une réponse à choix multiple ---------- */
+  function chooseOption(btn){
+    var card = cardOf(btn);
+    var qid = card.getAttribute('data-qid');
+    var data = KEY[qid];
+    if(!data) return;
+
+    var idx = parseInt(btn.getAttribute('data-i'), 10);
+    var opts = card.querySelectorAll('.opt');
+    var ok = (idx === data.correct);
+
+    /* on efface les marques précédentes */
+    Array.prototype.forEach.call(opts, function(o){ o.classList.remove('good','bad'); });
+    card.classList.remove('is-ok','is-bad');
+
+    if(ok){
+      btn.classList.add('good');
+      card.classList.add('is-ok');
+      setFeedback(card, true, "✔ Bonne réponse ! " + data.expl);
+    } else {
+      btn.classList.add('bad');
+      if(opts[data.correct]) opts[data.correct].classList.add('good');
+      card.classList.add('is-bad');
+      setFeedback(card, false, "✘ Réponse incorrecte. La bonne réponse est en vert.<br>" + data.expl);
+    }
+    card.classList.add('touched');
+    updateStats();
+  }
+
+  /* ---------- Statistiques ---------- */
+  function updateStats(){
+    var good = 0, done = 0;
+    cards.forEach(function(card){
+      if(card.classList.contains('touched')) done++;
+      if(card.classList.contains('is-ok')) good++;
+    });
+    document.getElementById('score').textContent = good;
+    document.getElementById('done').textContent = done;
+    document.getElementById('progressBar').style.width = (done / TOTAL * 100).toFixed(1) + '%';
+
+    var note = Math.round(good / TOTAL * 20 * 10) / 10;
+    var mention = "—";
+    if(done === 0) mention = "—";
+    else if(note >= 18) mention = note + " / 20 · Excellent";
+    else if(note >= 16) mention = note + " / 20 · Très bien";
+    else if(note >= 14) mention = note + " / 20 · Bien";
+    else if(note >= 12) mention = note + " / 20 · Assez bien";
+    else if(note >= 10) mention = note + " / 20 · Moyen";
+    else mention = note + " / 20 · À revoir";
+    document.getElementById('mention').textContent = "Note : " + mention;
+  }
+
+  /* ---------- Vérification globale ---------- */
+  function verifyAll(){
+    var pending = 0;
+    cards.forEach(function(card){
+      if(card.querySelector('input.answer')){
+        var inp = card.querySelector('input.answer');
+        if(inp.value.trim() === ""){ pending++; }
+        else { checkText(card); }
+      }
+    });
+    updateStats();
+    if(pending > 0){
+      window.alert("Il reste " + pending + " question(s) à réponse écrite sans réponse.\nComplétez-les, puis vérifiez à nouveau.");
+    }
+  }
+
+  /* ---------- Construction du corrigé détaillé ---------- */
+  function buildCorrection(){
+    var html = "";
+    cards.forEach(function(card){
+      var qid = card.getAttribute('data-qid');
+      var data = KEY[qid];
+      var num = card.querySelector('.qnum').textContent.replace(/[^0-9]/g, '');
+      var tag = card.querySelector('.tag').textContent;
+      var question = card.querySelector('.q-text').innerHTML;
+
+      var userTxt = "(aucune réponse)";
+      var status = "none", statusTxt = "Sans réponse";
+
+      if(card.querySelector('input.answer')){
+        var inp = card.querySelector('input.answer');
+        if(inp.value.trim() !== ""){
+          userTxt = inp.value.trim();
+          if(card.classList.contains('is-ok')){ status = "ok"; statusTxt = "Correct"; }
+          else { status = "bad"; statusTxt = "Incorrect"; }
+        }
+      } else {
+        var marked = card.querySelector('.opt.bad') || card.querySelector('.opt.good');
+        if(marked){
+          if(card.classList.contains('is-ok')){
+            status = "ok"; statusTxt = "Correct";
+            var g = card.querySelector('.opt.good');
+            if(g) userTxt = g.textContent.replace(/[✔✘]/g,'').trim();
+          } else {
+            status = "bad"; statusTxt = "Incorrect";
+            var b = card.querySelector('.opt.bad');
+            if(b) userTxt = b.textContent.replace(/[✔✘]/g,'').trim();
+          }
+        }
+      }
+
+      var expected = data.text ? data.text[0] : card.querySelectorAll('.opt')[data.correct].textContent.replace(/[✔✘]/g,'').trim();
+
+      html += '<div class="cor-item ' + status + '">'
+            +   '<div class="cor-head">'
+            +     '<span class="qnum">Question ' + num + '</span>'
+            +     '<span class="tag">' + tag + '</span>'
+            +     '<span class="cor-status ' + status + '">' + statusTxt + '</span>'
+            +   '</div>'
+            +   '<p class="cor-q"><strong>Énoncé :</strong> ' + question + '</p>'
+            +   '<p><strong>Réponse attendue :</strong> <span class="ok-text">' + expected + '</span></p>'
+            +   '<p><strong>Votre réponse :</strong> <span class="' + (status === 'ok' ? 'ok-text' : (status === 'bad' ? 'bad-text' : '')) + '">' + userTxt + '</span></p>'
+            +   '<p class="cor-e"><b>Explication :</b> ' + data.expl + '</p>'
+            + '</div>';
+    });
+    corBody.innerHTML = html;
+    correctionBuilt = true;
+  }
+
+  function toggleCorrection(){
+    if(!correctionBuilt) buildCorrection();
+    else buildCorrection();
+
+    var open = corPanel.classList.toggle('open');
+    btnCorrige.textContent = open
+      ? "📖 Masquer le corrigé avec explications"
+      : "📖 Afficher le corrigé avec explications";
+
+    if(open){
+      setTimeout(function(){
+        corPanel.scrollIntoView({behavior:"smooth", block:"start"});
+      }, 60);
+    }
+  }
+
+  /* ---------- Réinitialisation ---------- */
+  function resetAll(){
+    if(!window.confirm("Réinitialiser l'exercice et effacer toutes vos réponses ?")) return;
+    cards.forEach(function(card){
+      card.classList.remove('is-ok','is-bad','touched');
+      Array.prototype.forEach.call(card.querySelectorAll('.opt'), function(o){
+        o.classList.remove('good','bad');
+      });
+      var inp = card.querySelector('input.answer');
+      if(inp){ inp.value = ""; inp.classList.remove('good','bad'); }
+      var fb = card.querySelector('.feedback');
+      if(fb){ fb.className = 'feedback'; fb.textContent = ""; }
+    });
+    corPanel.classList.remove('open');
+    corBody.innerHTML = "";
+    correctionBuilt = false;
+    btnCorrige.textContent = "📖 Afficher le corrigé avec explications";
+    updateStats();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  /* ---------- Téléchargement du fichier HTML ---------- */
+  var FILE_NAME = "Exercice-Francais-4e-Sid-KHALIFA.html";
+  var savePanel = document.getElementById('savePanel');
+  var saveMsg   = document.getElementById('saveMsg');
+  var srcBox    = document.getElementById('srcBox');
+
+  function inFrame(){
+    try { return window.self !== window.top; } catch(e){ return true; }
+  }
+
+  function toast(txt){
+    var t = document.getElementById('otToast');
+    if(!t){
+      t = document.createElement('div');
+      t.id = 'otToast';
+      t.className = 'toast';
+      document.body.appendChild(t);
+    }
+    t.textContent = txt;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function(){ t.classList.remove('show'); }, 5200);
+  }
+
+  function makeBlobURL(){
+    return URL.createObjectURL(new Blob([PRISTINE], {type:"text/html;charset=utf-8"}));
+  }
+
+  function showSavePanel(msg){
+    if(msg) saveMsg.textContent = msg;
+    if(!srcBox.value) srcBox.value = PRISTINE;
+    savePanel.classList.add('open');
+    setTimeout(function(){ savePanel.scrollIntoView({behavior:"smooth", block:"center"}); }, 60);
+  }
+
+  function downloadHTML(){
+    var launched = false, url = null;
+    try{
+      url = makeBlobURL();
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = FILE_NAME;
+      a.rel = "noopener";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      launched = true;
+    }catch(err){ launched = false; }
+
+    if(inFrame()){
+      showSavePanel("L'exercice est affiché dans un aperçu intégré, qui bloque souvent les téléchargements. Enregistrez le fichier en copiant le code source ci-dessous (ou ouvrez l'exercice dans un onglet du navigateur).");
+      toast("Téléchargement bloqué dans l'aperçu — utilisez le code source ci-dessous.");
+    } else if(launched){
+      toast("Téléchargement lancé ✓ — si rien n'apparaît, cliquez sur « Code source à copier ».");
+    } else {
+      showSavePanel("Le téléchargement direct n'est pas disponible dans ce navigateur : copiez le code source ci-dessous.");
+    }
+
+    if(url) setTimeout(function(){ URL.revokeObjectURL(url); }, 60000);
+  }
+
+  function openInTab(){
+    try{
+      var url = makeBlobURL();
+      var w = window.open(url, "_blank");
+      if(!w) throw new Error("popup blocked");
+      toast("Ouverture dans un nouvel onglet ✓ — faites Ctrl+S (Cmd+S) pour enregistrer.");
+    }catch(e){
+      showSavePanel("L'ouverture d'un nouvel onglet est bloquée ici : copiez simplement le code source ci-dessous.");
+    }
+  }
+
+  function copySource(){
+    if(!srcBox.value) srcBox.value = PRISTINE;
+    var ok = function(){ toast("Code source copié dans le presse-papiers ✓"); };
+    var fallback = function(){
+      srcBox.removeAttribute('readonly');
+      srcBox.focus();
+      srcBox.select();
+      try{ document.execCommand('copy'); toast("Code source copié ✓"); }
+      catch(e){ toast("Copie automatique impossible : le texte est sélectionné, faites Ctrl+C."); }
+      srcBox.setAttribute('readonly','readonly');
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(PRISTINE).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  /* ---------- Écouteurs d'événements ---------- */
+  document.addEventListener('click', function(e){
+    var opt = e.target.closest ? e.target.closest('.opt') : null;
+    if(opt){ chooseOption(opt); return; }
+
+    var check = e.target.closest ? e.target.closest('.btn-check') : null;
+    if(check){ checkText(cardOf(check)); return; }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === "Enter" && e.target && e.target.classList && e.target.classList.contains('answer')){
+      e.preventDefault();
+      checkText(cardOf(e.target));
+    }
+  });
+
+  document.addEventListener('focusout', function(e){
+    if(e.target && e.target.classList && e.target.classList.contains('answer') && e.target.value.trim() !== ""){
+      checkText(cardOf(e.target));
+    }
+  });
+
+  document.addEventListener('input', function(e){
+    if(e.target && e.target.classList && e.target.classList.contains('answer')){
+      var card = cardOf(e.target);
+      e.target.classList.remove('good','bad');
+      card.classList.remove('is-ok','is-bad');
+      var fb = card.querySelector('.feedback');
+      if(fb && fb.classList.contains('bad')){ fb.className = 'feedback'; fb.textContent = ""; }
+      updateStats();
+    }
+  });
+
+  document.getElementById('btnVerifyAll').addEventListener('click', verifyAll);
+  document.getElementById('btnVerifyAll2').addEventListener('click', verifyAll);
+  document.getElementById('btnCorrige').addEventListener('click', toggleCorrection);
+  document.getElementById('btnDownload').addEventListener('click', downloadHTML);
+  document.getElementById('btnDownloadTop').addEventListener('click', downloadHTML);
+  document.getElementById('btnSource').addEventListener('click', function(){ showSavePanel("Copiez le code ci-dessous pour créer le fichier .html sur votre ordinateur."); });
+  document.getElementById('btnOpenTab').addEventListener('click', openInTab);
+  document.getElementById('btnCopyAll').addEventListener('click', copySource);
+  document.getElementById('btnClosePanel').addEventListener('click', function(){ savePanel.classList.remove('open'); });
+  document.getElementById('btnSelect').addEventListener('click', function(){
+    if(!srcBox.value) srcBox.value = PRISTINE;
+    srcBox.removeAttribute('readonly');
+    srcBox.focus();
+    srcBox.select();
+    srcBox.setAttribute('readonly','readonly');
+    toast("Code sélectionné : faites Ctrl+C (Cmd+C) pour le copier.");
+  });
+  document.getElementById('btnReset').addEventListener('click', resetAll);
+  document.getElementById('btnResetTop').addEventListener('click', resetAll);
+
+  updateStats();
+})();
+</script></body></html>
